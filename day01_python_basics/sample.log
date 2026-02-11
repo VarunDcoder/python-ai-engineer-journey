@@ -1,0 +1,10 @@
+INFO Application started
+ERROR Database connection failed
+WARNING Disk usage high
+ERROR Database connection failed
+INFO User login successful
+ERROR Timeout while calling API
+WARNING Disk usage high
+ERROR Timeout while calling API
+ERROR Timeout while calling API
+ERROR Disk failure

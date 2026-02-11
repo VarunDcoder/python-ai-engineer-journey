@@ -1,0 +1,5 @@
+{
+    "Database connection failed": 2,
+    "Timeout while calling API": 3,
+    "Disk failure": 1
+}
