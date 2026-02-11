@@ -56,7 +56,7 @@ def print_summary(results):
             print(f"Most frequent {level}: {most_frequent} ({max_count} times)")
 def save_summary_to_json(results):
     # Convert defaultdict to normal dict for clean JSON
-    clean_reults = {
+    clean_results = {
         level: dict(messages)
         for level, messages in results.items()
     }
