@@ -10,5 +10,8 @@
     },
     "WARNING": {
         "Disk usage high": 2
+    },
+    "CRITICAL": {
+        "Server crashed": 2
     }
 }

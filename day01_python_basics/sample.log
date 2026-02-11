@@ -8,3 +8,5 @@ WARNING Disk usage high
 ERROR Timeout while calling API
 ERROR Timeout while calling API
 ERROR Disk failure
+CRITICAL Server crashed
+CRITICAL Server crashed
