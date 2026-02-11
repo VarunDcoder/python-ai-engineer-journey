@@ -6,6 +6,8 @@ OUTPUT_FILE = "summary.json"
 
 def analyze_logs(file_path):
     error_counts = defaultdict(int)
+    warning_counts = defaultdict(int)
+    info_counts = defaultdict(int)
 
     try:
         with open(file_path, "r") as file:
@@ -13,22 +15,33 @@ def analyze_logs(file_path):
                 line = line.strip()
 
                 if line.startswith("ERROR"):
-                    error_type =line.replace("ERROR", "").strip()
-                    error_counts[error_type] += 1
+                    message =line.replace("ERROR", "").strip()
+                    error_counts[message] += 1
+                elif line.startswith("WARNING"):
+                    message = line.replace("WARNING", "").strip()
+                    warning_counts[message] += 1
+                elif line.startswith("INFO"):
+                    message = line.replace("INFO", "").strip()
+                    info_counts[message] += 1
     except FileNotFoundError:
         print("Log file not found.")
         return {}
     
-    return error_counts
-
-def print_summary(error_counts):
+    return {
+        "ERROR": error_counts,
+        "WARNING": warning_counts,
+        "INFO": info_counts
+    }
+def print_summary(results):
     print("\nError Summary:")
-    for error, count in error_counts.items():
-        print(f"{error}: {count}")
+    for level, messages in results.items():
+        print(f"\n{level} Summary:")
+        for message, count in messages.items():
+            print(f"{message}: {count}")
 
-def save_summary_to_json(error_counts):
-    with open("summary.json", "w") as json_file:
-        json.dump(error_counts, json_file, indent=4)
+def save_summary_to_json(results):
+    with open(OUTPUT_FILE, "w") as json_file:
+        json.dump(results, json_file, indent=4)
 
 if __name__ == "__main__":
     result = analyze_logs(LOG_FILE)
