@@ -33,7 +33,6 @@ def analyze_logs(file_path):
         "INFO": info_counts
     }
 def print_summary(results):
-    print("\nError Summary:")
     for level, messages in results.items():
         print(f"\n{level} Summary:")
         for message, count in messages.items():
