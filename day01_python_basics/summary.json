@@ -1,4 +1,8 @@
 {
+    "INFO": {
+        "Application started": 1,
+        "User login successful": 1
+    },
     "ERROR": {
         "Database connection failed": 2,
         "Timeout while calling API": 3,
@@ -6,9 +10,5 @@
     },
     "WARNING": {
         "Disk usage high": 2
-    },
-    "INFO": {
-        "Application started": 1,
-        "User login successful": 1
     }
 }
